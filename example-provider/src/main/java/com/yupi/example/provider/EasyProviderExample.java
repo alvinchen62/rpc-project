@@ -1,6 +1,7 @@
 package com.yupi.example.provider;
 
 import com.yupi.example.common.service.UserService;
+import com.yupi.yurpc.RpcApplication;
 import com.yupi.yurpc.registry.LocalRegistry;
 import com.yupi.yurpc.server.HttpServer;
 import com.yupi.yurpc.server.VertxHttpServer;
@@ -11,6 +12,10 @@ import com.yupi.yurpc.server.VertxHttpServer;
 public class EasyProviderExample {
 
     public static void main(String[] args) {
+
+        // RPC框架初始化
+        RpcApplication.getRpcConfig();
+
         // 注册服务
         LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
 
